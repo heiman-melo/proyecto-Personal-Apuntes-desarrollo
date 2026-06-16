@@ -1,0 +1,92 @@
+<h2>front back</h2>
+<p>
+<pre>
+   -vercel para alojar la aplicacion de react 
+-Supabase (para bases de datos SQL) y autenticacion 
+-Firebase (para bases de datos NoSQL)
+-tambien subiremos la aplicacion a github para de hay conectarla a vercel
+
+------------comenzando con la creacion del proyecto-------------------------------
+-npm create vite@latest my-todo-app -- --template react-ts    //solo desde la consola sin tener la carpeta creada
+-npm create vite@latest . -- --template react-ts  // ya con carpeta creada parado en la carpeta el . es para que me cree todas las carpetas dentro de la carpeta que estoy parado
+-npm i // para que se instale todas las dependencias esto despues de crear lo principal del proyecto con el primer comando
+-"scripts":{"dev": "vite"} npm run dev de esta forma se crea entonces el proyecto se corre de esa forma, 
+-{"start": "vite --open"} lo cambio de esta forma porque asi lo corro con npm start --open es para que corra de una el proyecto
+-npm install @mui/material @emotion/react @emotion/styled @mui/icons-material react-router-dom (con esto instalo todo lo que necesito para material ui)
+-en esta primera parte creamos :
+ 1) components
+        ProtectedRoute.tsx
+        TodoList.tsx
+    context
+         AuthContext.tsx
+    interfaces
+        types.ts
+    pages
+         Dashborad.tsx
+         Login.tsx
+         Register.tsx
+    App.tsx se agregaron las rutas que llevara mi to do list 
+    main.tsx se agrego la configuración para el router
+---------------------------------------------------------------------------------------
+-back ahora configuraremos una parte del back
+- creo la carpeta server en la raiz del proyecto
+-npm init -y  -y acepta todos los valores por defecto
+-npm install express dotenv @supabase/supabase-js firebase-admin cors  , instalamois todos estos paquetes  que inicialmente usaremos para la base de datos que se creara
+-creamos los archivos necesarios
+    .env  para agregar las claves
+    server.js  logica inicial para cargar nodeJS
+    supabase.js 
+-
+--------------------como conectarse a firabase -------------------
+https://console.firebase.google.com/u/0/   
+-crear el proyecto guardar todo lo que le dan 
+-*configuracion del proyecto > cuentas de servicio > node.js > generar nueva clave privada (advertencia generar clave)> se descargara un json con las claves
+-este json sera con el que me logee en firebase 
+
+-------------------supabase---------------------------------------
+https://supabase.com/dashboard/sign-in?returnTo=%2Forganizations   Heimi1698# castroheiman26@gmail.com
+-me logeo con google o gitHub yo lo hice con GitHub
+-heiman-castro-melo nombre de la organizacion
+-to-do-list lista de tareas pendientes nombre del proyecto
+-Jz3kbra+jW.@Za8%    clave de la base de datos
+Pasos para crear las políticas
+Desde la vista de tu tabla tasks en el Table Editor:
+
+Haz clic en la pestaña "Authentication".
+Si no está activa, activa la opción Enable Row Level Security (RLS).
+
+Haz clic en el botón New policy.
+
+Política 1: Leer (SELECT)
+Selecciona la plantilla For full customization.
+Name (Nombre): Allow users to view their own tasks
+Target Roles: Asegúrate de que authenticated esté seleccionado. Esto significa que la política se aplica a cualquier usuario que haya iniciado sesión.
+USING expression: Copia y pega exactamente esta expresión: auth.uid() = user_id.
+Haz clic en Review y luego en Save policy.
+
+Política 2: Insertar (INSERT)
+Haz clic nuevamente en New policy
+Selecciona la plantilla For full customization.
+Nombre :Allow users to create tasks for themselves
+Roles objetivo :authenticated
+WITH CHECK expression: Copia y pega la misma expresión: auth.uid() = user_id. Esta expresión se usa en los INSERT para verificar que el usuario está creando una tarea con su propio ID.
+Haz clic en Review y luego en Save policy.
+
+Política 3: Actualizar (UPDATE)
+Haz clic en New policy.
+Selecciona la plantilla For full customization.
+Nombre :Allow users to update their own tasks
+Roles objetivo :authenticated
+USANDO expresión : auth.uid() = user_id.
+CON expresión CHECK : auth.uid() = user_id.
+Haz clic en Review y luego en Save policy.
+Política 4: Eliminar
+
+Haz clic en New policy.
+Selecciona la plantilla For full customization.
+Nombre :Allow users to delete their own tasks
+Roles objetivo :authenticated
+USANDO expresión : auth.uid() = user_id.
+Haz clic en Review y luego en Save policy. 
+</pre>
+</p>

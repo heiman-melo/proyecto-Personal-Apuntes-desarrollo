@@ -1,0 +1,71 @@
+<h2>git</h2>
+<p>
+<pre>
+
+<p style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold;">inicializacion verificacion cambios de nombres</p>
+git init      (para que git empiece a seguir el proyecto)
+git status    (para ver que cambios llevo y donde los tengo)
+git add .     (para agregar cambios al staging)
+git commit -m "Mensaje del commit" (mensaje de lo que vamos a guardar en este commit)
+git log   (me muestra los cambios que se han hecho en esa rama)
+git commit -am "mensaje del commit" (agrega todos los archivos y guarda el mensaje las dos cosas al mismo tiempo)
+git commit --amend --no-edit (commit de nuevos cambios agregados al mismo commit anterior sin editar el mensaje del último commit)
+git commit --amend -m "nuevo mensaje para el último mismo commit solo se cambiara eso el mensaje"
+
+<p style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold;">pasarme y ver ramas cambiar nombre</p>
+git checkout -b nombre_de_tu_rama  (crear una nueva rama con git)
+git log   (me muestra los cambios que se han hecho en esa rama)
+git checkout 300b20870670abffb2f5c475fb454ae81950345e (con este comando me paso a una rama)
+git branch -m old-name new-name de esta forma se cambia el nombre de una rama
+
+<p style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold;">borrar ramas</p>
+git push origin --delete nombre de la rama    (ya con este comendo se borra la rrama remota y hay pasoa borrar la rama local)
+git push origin -d 8827_user_management_view_UAT (con este borro una rama remota)
+git branch -d nombre_de_la_rama  (parado en otra rama elimino la rama que ya no voy a usar) 
+git branch -D nombre_de_la_rama  (con la D mayuscula forzo a que se borre la rama con todo y los cambios que allan en ella)
+git branch -vv con este comando me da mas informacion de las ramas por si tengo dos ramas iguales saber cual es la que debo borrar o cualquier otra cosa
+
+<p style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold;">eliminar merge abortar o cambiarse a un commit diferente</p>
+git reset --hard HEAD elimina todos los cambios generados con ctrl s
+git merge --abort (con este comando aborto el merge si veo que los conflictos son feos y no se como resolverlos)
+git reset --soft HEAD~1 elimino el commit pero me mantiene los cambios que yo alla hecho en esa rama que agrege queda la rama y los cambios activos  
+git reset --hard HEAD~1 elimina el commit me elimina los cambios y me devuelve a donde comence osea deja donde estaba la cosa no me guarda lo que llevaba
+git reset --hard 300b20870670abffb2f5c475fb454ae81950345e (regreso a antes del merge se regresan los cambios a donde estaba para desaser un merge o pull)
+
+<p style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold;">stash</p>
+git stash -u me guardara los cambios que alla hecho en una rama que este seguida o no por git
+git stash sin -u me guarda los cambios que son seguidos por git la primera opcion es mas segura
+git stash list me muestra la lista de los stash
+git stash pop me agrega el primer stash a la rama donde estoy parado y de una vez lo borra 
+git stash apply me agrega el primer stash a la rama que estoy trabajando y no me borra nada
+git stash drop stash@{1} elimina uno en especifico
+git stash apply stash@{2} me trae los cambios de uno especifico y no me borra nada 
+git stash clear me limpia todo el stash
+https://www.atlassian.com/es/git/tutorials/saving-changes/git-stash#stashing-your-work  en esta url hablan del stash
+
+<p style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold;">otros</p>
+git cherry-pick gdgdggdgdgsyehasht (si varias personas trabajamos en una rama y solo quiero sacar los cambios que yo hice y pasarlos a otra rama)
+git reset --hard master@{"30 minutes may"} ago de esta manera elimino un pull o merge de un tiempo atras y me queda donde estaba me elimina los galos que alla introducido
+git reset --hard rama donde necesito regresar cambios@{"30 minutes may"} no esto como que siempre apunta a master
+git commit -m "Mensaje del commit"="(fix o feat(mvc): texto de lo que hice #8245 numero de la tarea para que al subir a development me muestre en la tarea que ya se subio)"
+git submodule update --remote --merge ,obtener ultimos cambios del remoto
+git fetch muestra los cambios que hay en el remoto sin integrarlos para ver que cambiaron
+
+<p style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold;">cuando hay librerias que te piden un commit con un formato especifico</p>
+git commit -m "tu nuevo mensaje" --no-verify
+
+<p style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold;">comandos para el usuario</p>
+git config user.name nombre de usuario
+git config user.email correo del usuario
+
+cambiar el usuario al que necetiga gitHub la configuracion puede haber una global y una unica por proyecto para hkas uso la global
+git config user.name "Tu Nombre"
+git config user.email "tu@correo.com"
+
+para cambiar la configuracion en todos los proyectos
+git config --global user.name "Tu Nombre"
+git config --global user.email "tu@correo.com"
+
+git config --list toda la configuracion con ruta del repo
+</pre>
+</p>

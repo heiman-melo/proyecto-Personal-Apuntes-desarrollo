@@ -1,0 +1,13 @@
+# Editor
+.vscode/
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+7-hkas.html

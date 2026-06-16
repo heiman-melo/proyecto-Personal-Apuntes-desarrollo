@@ -1,0 +1,25 @@
+<h2>javaScript puro y para react</h2>
+<p>
+<pre>
+                <div class="container-button">
+                  <button><a href="#operador??">operador ?? y ||</a></button>
+                  <button><a href="#ordenarArray">ordenar array</a></button>
+                  <!-- <button><a href="#textos">textos</a></button> -->
+                </div>
+                <p id="spreadOperator" style="margin-bottom:0px;color:rgb(75, 60, 206);font-size:16px;font-weight: bold;padding-top:80px;">spread operator</p>
+                let algo2 = { cedula: 1649, ...algo, ...algo3 }; como agregar mas propiedades a un objeto creadas en otro objeto 
+                let algo4 = { ...algo2, cedula: 8888 }; agregar un objeto y cambiar alguna de sus propiedades
+                <p id="operador??" style="margin-bottom:0px;color:rgb(75, 60, 206);font-size:16px;font-weight: bold;padding-top:80px;">operador ?? y || </p>
+                const a = 10;
+                const b = null;
+                const result = b ?? a; // 10 como b es nulo me toma el sigiente valor 
+                const result = b ?? 0 //0 rirectamente el valor que nesecito 
+                ?? and || =  null false undefined ?? valor , null false undefined || valor 
+                || or sirve para condicionales de si una cosa existe o la otra y tambien tiene la funcionalidad de ??
+                ?? analiza el primer valor si no cumple agrega el segundo valor 
+                valor.length es bueno colocarle valor?.length porque si valor es una variable de estado que en la primera carga no se ha llenado si se inicializo en null el codigo fallara 
+                <p id="ordenarArray" style="margin-bottom:0px;color:rgb(75, 60, 206);font-size:16px;font-weight: bold;padding-top:80px;">ordenar un array por la letra del nombre</p>
+                data.sort((a, b) => a.name.localeCompare(b.name)); de esta manera ordeno por la primera letra del nombre el array
+
+              </pre>
+</p>

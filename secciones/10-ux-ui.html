@@ -1,0 +1,131 @@
+<h2>ux ui</h2>
+<div class="container-button">
+   <button><a href="#textosUX">textos</a></button>
+</div>
+<p>   
+<pre>
+<p id="textosUX" style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold;padding-top: 80px;">textos</p>
+1. Tamaños de Letra (Escala Tipográfica)
+Lo ideal es usar una escala basada en REM para mantener la accesibilidad que ya aplicas en tus proyectos.
+
+Títulos Principales (H1): 32px a 40px (2rem a 2.5rem). Se usa solo uno por página para el beneficio principal.
+
+Subtítulos (H2/H3): 24px a 28px (1.5rem a 1.75rem). Ideales para secciones como "Search by ID".
+
+Cuerpo de Texto (Body): 16px (1rem). Es el estándar de legibilidad universal. Nunca bajes de este tamaño para párrafos largos.
+
+Texto Secundario/Labels: 14px (0.875rem). Perfecto para las etiquetas de los inputs (como "Date of Birth") o notas al pie de página.
+---------------------
+2. Grosor de la Letra (Font Weight)
+El grosor ayuda a diferenciar la importancia de los elementos:
+
+Bold (700): Reservado para los H1 y los textos de los botones principales (como el botón "Search").
+
+Medium/Semi-bold (500/600): Úsalo para los Labels de los formularios y títulos de secciones pequeñas. Ayuda a que resalten sobre el fondo blanco sin ser demasiado pesados.
+
+Regular (400): Es el estándar para todo el Cuerpo de texto y el texto que el usuario escribe dentro de los inputs. Es el más cómodo para lecturas largas.
+---------------------
+3. Oscuridad y Contraste (Colores)
+Nunca uses negro puro (#000000) sobre fondo blanco puro, ya que genera mucha fatiga visual. En su lugar, usa "grises oscuros":
+
+Texto Principal: Un gris muy oscuro como #212529 (el estándar de Bootstrap 5) o #1A1A1A.
+
+Texto Secundario/Placeholder: Un gris medio como #6C757D. Es suficiente para que se vea, pero indica que es información de apoyo.
+
+Contraste de Accesibilidad: Asegúrate de que el color de tu letra contra el fondo cumpla con el ratio 4.5:1 (estándar WCAG). Si el texto es muy claro, el usuario no podrá leerlo bajo luz solar o en monitores de baja calidad.
+---------------------
+Elemento,Tamaño,Grosor,Color (Sugerido)
+Título de sección,24px,600,#212529
+"Labels (ID, Date)",14px,500,#495057
+Texto dentro de Input,16px,400,#212529
+"Texto del círculo ""OR""",12px,700,#FFFFFF (sobre azul)
+
+Nielsen Norman Group (NN/g)
+Jakob Nielsen: El Rey de la Usabilidad y los Datos
+Nielsen es un ingeniero de software de formación, y eso se nota en su enfoque. Él es el hombre de los estándares y la eficiencia.
+
+En qué es bueno:
+
+Heurísticas de Usabilidad: Creó las 10 reglas de oro para evaluar interfaces. Es el maestro en identificar qué hace que una web sea difícil de usar.
+Métodos de bajo costo: Inventó la "Evaluación Heurística" y el testeo con solo 5 usuarios, demostrando que no necesitas una fortuna para mejorar un producto.
+Eye-tracking: Ha estudiado durante décadas cómo mueven los ojos los usuarios. Gracias a él sabemos que la gente lee en "F" y que odia el contenido de relleno.
+Minimalismo: Su filosofía es que "el diseño es un mal necesario"; la interfaz debe desaparecer para que el usuario logre su objetivo rápido.
+
+10 heurusticas
+
+1. Visibilidad del estado del sistema
+El sistema siempre debe mantener a los usuarios informados sobre lo que está sucediendo.
+
+Ejemplo: Si el usuario hace clic en "Search", debe aparecer un icono de carga (spinner) para que sepa que el sistema está trabajando y no se quedó trabado.
+
+2. Relación entre el sistema y el mundo real
+El sistema debe hablar el lenguaje del usuario, con palabras y conceptos que le sean familiares, no con términos técnicos de programación.
+
+Ejemplo: Usar "Date of Birth" en lugar de "DB_USER_DOB_VAR".
+
+3. Control y libertad del usuario
+Los usuarios a menudo eligen funciones por error y necesitan una "salida de emergencia" clara.
+
+Ejemplo: Si el usuario entra a una pantalla de detalles por error, debe haber un botón de "Back" (Atrás) o una "X" para cerrar fácil de encontrar.
+
+4. Consistencia y estándares
+Los usuarios no deberían tener que preguntarse si diferentes palabras, situaciones o acciones significan lo mismo.
+
+Ejemplo: Si en una página el botón de buscar es azul, en todas las demás páginas debe ser azul. No lo cambies a verde de repente.
+
+5. Prevención de errores
+Es mejor un diseño que evite que el problema ocurra en primer lugar que un buen mensaje de error.
+
+Ejemplo: El código que pusimos para que el "OR" separe las dos búsquedas evita que el usuario llene campos de ambos lados y confunda al servidor.
+
+6. Reconocimiento en lugar de recuerdo
+Minimiza la carga de memoria del usuario haciendo que los objetos, las acciones y las opciones estén visibles.
+
+Ejemplo: En lugar de obligar al usuario a recordar su ID de suscriptor de la página anterior, muéstralo en la parte superior si es relevante para la búsqueda actual.
+
+7. Flexibilidad y eficiencia de uso
+Los aceleradores (atajos) pueden hacer que la interacción sea más rápida para el usuario experto.
+
+Ejemplo: Permitir que el usuario presione la tecla "Enter" para buscar, en lugar de obligarlo siempre a mover el mouse hasta el botón "Search".
+
+8. Estética y diseño minimalista
+Las interfaces no deben contener información que sea irrelevante o raramente necesaria. Cada unidad de información extra compite con las unidades relevantes.
+
+Ejemplo: El diseño limpio que tienes con Bootstrap, con mucho espacio en blanco, ayuda a que el usuario se enfoque solo en los campos de entrada.
+
+9. Ayudar a los usuarios a reconocer, diagnosticar y recuperarse de errores
+Los mensajes de error deben expresarse en lenguaje sencillo (sin códigos), indicar exactamente el problema y sugerir una solución.
+
+Ejemplo: En lugar de decir "Error 404", decir "No encontramos resultados para este ID. Por favor, verifica el número e intenta de nuevo".
+
+10. Ayuda y documentación
+Aunque es mejor que el sistema se use sin ayuda, a veces es necesario proporcionar documentación fácil de buscar y enfocada en la tarea del usuario.
+
+Ejemplo: Un pequeño icono de "?" junto al campo "Dependent Sequence" que explique brevemente qué números puede poner ahí (0-9).
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+Don Norman: El Psicólogo del Diseño y la Experiencia
+Norman es un psicólogo cognitivo y científico de la computación. Él no mira tanto los "clics", sino cómo se siente y cómo piensa el ser humano al interactuar 
+con un objeto (físico o digital).En qué es bueno:
+Psicología Cognitiva: Es el experto en cómo el cerebro procesa la información. Introdujo conceptos como los Affordances (pistas visuales que te dicen cómo usar algo, 
+como el círculo de tu "OR").Diseño Emocional: Explica que si algo es atractivo, el usuario es más tolerante a los errores. Se enfoca en el placer y la estética, no 
+solo en la función.User Experience (UX): Él fue quien inventó el término "User Experience" cuando trabajaba en Apple en los 90. Su visión es holística: incluye desde
+el empaque del producto hasta el soporte técnico. Diseño centrado en el humano: Su enfoque es que el diseño debe adaptarse a las limitaciones humanas, no al revés.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+Metodologías de Trabajo
+
+Exploramos cómo se gestiona un proyecto de software moderno:
+
+Design Thinking: Para empatizar con el usuario y definir el problema real.
+
+Agile & Scrum: La importancia de las Dailies (reuniones de 15 min) para sincronizar al equipo y el uso de Sprints para entregar avances rápidos.
+
+Lean UX: El ciclo de "Pensar - Hacer - Chequear", priorizando el aprendizaje y el producto mínimo viable sobre la documentación pesada.
+
+Historias de Usuario: La técnica para redactar requerimientos desde la perspectiva del beneficio para el usuario.
+</pre>
+</p>

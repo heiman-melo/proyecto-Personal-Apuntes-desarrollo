@@ -1,0 +1,115 @@
+<h2>react instalacion , ui y manejo de la consola</h2>
+<p>
+<pre>
+<div class="container-button">
+  <button><a href="#vite">vite instalazion y arranque</a></button>
+  <!-- <button><a href="#reactTeoria">react teoria</a></button> -->
+  <!-- <button><a href="#textos">textos</a></button>
+  <button><a href="#contenedores">contenedores</a></button>
+  <button><a href="#input">input</a></button>
+  <button><a href="#imagenes">imagenes</a></button>
+  <button><a href="#colores-degradados">colores degradados</a></button>
+  <button><a href="#position">position</a></button>
+  <button><a href="#flex">flex</a></button> -->
+</div> 
+1)descargar nodejs la version (lts) es la que se actualiza menos, en google node.js node.js.org la descargo de su pagina oficial 
+- solo navegador me permite ejecutar javaScript pero solo manejo del dom y interactividad 
+- para hacer solicitudes a un servidor debemos tener descargado node js
+- npm me permite instalar librerias o paquetes que funciones con java script 
+1.1) al abrir la consola cmd para crear un nuevo proyecto esta por defecto esta parada en la raiz mi pc con cd desktop voy a crear un nuevo proyecto en el escritorio
+
+2)buscar cmd en el buscador  el simbolo del sistema donde aparece microsoft windows aqui instalo react,en mac o linus se busca terminal
+
+3)npm es el gestor de paquetes de node, npm install -g npm@latest __________ para instalar la ultima version de npm o actualizarla
+  esto me permitira instalar react en su ultima version (g) global con esto al instalar react instalaremos la ultima version que alla 
+
+4)nmp --version  para saber la version que tengo actualmente de nodejs
+
+5)npm cache clean --force  para borrar cache limpiamos la cache de nodejs por si tiene algo guardado viejo no me impida instalar todo lo actual de react
+    
+6)cls o clear  para borrar todo de la consola o clear en mac o linus para borrar de la consola lo que ya se ejecuto y seguir con cosas nuevas listo ya la consola limpia
+
+- ya para instalar react busco el paquete de facebook
+<p style="margin-bottom:0px;color:rgb(206, 60, 60);font-size:16px;font-weight: bold;">(creo que esto ya no existe 7)</p>
+7) npm install -g create-react-app (creo que esto ya no existe) con esto instalo un paquete para poder trabajar un proyecto nuevo crea carpetas todo lo que se necesita
+npm install -g create-react-app  para instalar react en la raiz de mis carpetas con este paquete podemos crear todos los proyectos que queramos
+
+npx install -g create-react-app  o de esta otra manera 
+npx install -g create-react-app nueva-app      ahora con el nombre del nuevo proyecto que voy a crear  no le puedo colocar mayusculas 
+ya teniendo instalado react solo coloco ( create-react-app nueva-app ) para generar un nuevo proyecto al nombre del proyecto no le puedo colocar mayusculas
+    
+(create-react-app nueva-app ) ya instalado de esta manera creo un nuevo proyecto con todas las carpetas necesarias para que funcione
+
+(vite y parcel mejor que create-react) 
+
+dentro de visual studio le puedo cambiar el nombre al proyecto para que quede a camel case 
+    
+7.1) si me pasan un proyecto ya iniciado npm install para instalar ese proyecto y poder ponerlo a correr
+    
+8) cd nombreproyecto>npm start para poner a correr el nuevo proyecto si me sale una pestaña pidiendome permisos relleno el cuadrito y permito que tenga acceso a las redes privadas en un entorno local y listo se deja abierto el cmp o git bash para que quede corriendo el proyecto 
+hay puede volverme a salir el nombre en minuscula porque asi queda guardado internamente no pasa nada
+    
+9) copio la url y ya puedo acceder a mi proyecto, al darle npm start de una vez me abre mi proyecto
+
+se instala React Developer Tools podremos ver la estructura pues es las herramientas para desarrolladores me saldra una nueva pestaña 
+<p style="margin-bottom:0px;color:rgb(206, 60, 60);font-size:16px;font-weight: bold;">mas cosas para el proyecto ya creado</p>
+1) la version de react la miro dentro de un proyecto 
+2) con click derecho sobre un proyecto ya creado con react abro git bash ya parado sobre el proyecto  (npm start) listo se abre el proyecto
+3) si me pasan un proyecto que no lo alla creado yo npm install para descargar o actualizar todos los paquetes que tenga ese proyecto y npm start ya lo puedo poner a correr 
+<p style="margin-bottom:0px;color:rgb(62, 60, 206);font-size:16px;font-weight: bold;">(manejo de la consola cmd)</p>
+1)(tsc -w estudio.ts ) para que se actualice el archivo solo
+2)(ctrl c) para reiniciar la consola 
+3)c:\Users\castr> esta es la ruta que nos aparece en nuestro compilador hay es donde estamos parados 
+4)c:\Users\castr>cd.. para salirnos una carpeta c:\Users> aqui es donde quedamos
+5)c:\Users>cd castr volvemos a la carpeta donde empezamos c:\Users\castr>  cd Desktop\nueva-app nos vamos al escritorio 
+6)c:\Users\castr>dir me apareceran todas las carpetas que estan dentro de castro
+7)c:\Users\castr>cd\ quedara en el inicio en el disco c:>
+8)cd Users\castr volveremos nuevamente a la carpeta castro c:\Users\castr>
+9)todos mis proyectos los genero en mi escritorio por lo tanto la ruta es la siguiente c:\User\castr\OneDrive\Escritorio
+10) NG serve --open me abrira un servidor y listo 
+11) Ng serve solo ya abierto el navegador para que corra
+<p style="margin-bottom:0px;color:rgb(62, 60, 206);font-size:16px;font-weight: bold;">con la consola de visual studio code</p>
+1) control ñ para que me abra la consola el resto es igual
+<p style="margin-bottom:0px;color:rgb(62, 60, 206);font-size:16px;font-weight: bold;">PASOS PARA CREAR UN NUEVO PROYECTO</p>
+-cd desktop  para posicionarme en el escritorio
+-tambien puedo crea la carpeta y arrastrarla a la consola de git bach y de una vez me sale la ruta de la carpeta 
+-create-react-app nombreproyecto     para crear un nuevo proyecto nombre en minuscula no me permite camelcase despues me lo convierte a camel case
+cd nombreproyecto aqui ya quedo parado en el proyecto 
+npm start de esta manera arranco el proyecto
+<p id="vite" style="margin-bottom:0px;color:rgb(62, 60, 206);font-size:16px;font-weight: bold;padding-top:80px;">(VITE VITE VITE)</p>
+-npm install -g vite - create-vite-app para instalar vite (si ya esta instalado no)
+-vite --version
+-npm install vite
+
+de aqui para abajo instalacion 
+<span style="color:rgb(62, 60, 206);">instalarlo dentro de visul studio code</span> 
+<span style="color:rgb(62, 60, 206);">(con el espacio punto si estoy creando el proyecto arrastrando una carpeta a visual studio code o simp`lemente con la carpeta dentro de visual estudio code)</span>
+-npm create vite@latest .    el punto es para que me cree el proyecto en el mismo directorio o carpeta actual y no me pida nombre
+-npm i para instalar todas los modulos del directorio
+<span style="color:rgb(62, 60, 206);">para instalarlo dentro de una carpeta con la consola</span>
+- npm install -g npx
+- npx degit vitejs/vite@latest mi-proyecto-creíble
+- npm install (igual npm install para installar cualquier dependencia que haga falta)
+<h5 style="margin-bottom:0px;color:red">npm run dev  + ctrl+clic sobre la url donde me abrira el proyecto http://localhost:5173/</h5>
+leer las otras opciones que salen y darle
+<p style="margin-bottom:0px;color:rgb(62, 60, 206);font-size:16px;font-weight: bold;">INSTALAR ROUTER DOM</p>   
+-npm install --save react-router-dom   de esta manera instalo un paquete para poder crear rutas porque el paquete de react no lo trae por defecto
+nombreproyecto>npm start  para poner a correr el nuevo proyecto se deja corriendo el proyecto en el cmd
+ctrl ñ para abrir el cmd de visual studio code
+ctrl c para parar el proyecto le damos a si y se para el proyecto
+npm i node-sass // para instalar sass  
+<p style="margin-bottom:0px;color:rgb(62, 60, 206);font-size:16px;font-weight: bold;">INSTALAR AXIOS</p>
+npm install --save axios
+<p style="margin-bottom:0px;color:rgb(62, 60, 206);font-size:16px;font-weight: bold;">INSTALAR MATERIAL UI</p>
+npm install @mui/material @emotion/react @emotion/styled
+<p style="margin-bottom:0px;color:rgb(62, 60, 206);font-size:16px;font-weight: bold;">INSTALAR ANT DESING</p>
+npm install antd
+npm install --save @ant-design/icons
+<p style="margin-bottom:0px;color:rgb(62, 60, 206);font-size:16px;font-weight: bold;">react-hook-form y yup</p>
+npm install react-hook-form @hookform/resolvers yup   : de esta manera instalamos tres paquetes que necesitamos para las validaciones
+<p style="margin-bottom:0px;color:rgb(62, 60, 206);font-size:16px;font-weight: bold;">COMO SABER LAS VERSIONES QUE TENGO</p>
+npm --version , npm -v
+node -v
+
+  </pre>
+</p>

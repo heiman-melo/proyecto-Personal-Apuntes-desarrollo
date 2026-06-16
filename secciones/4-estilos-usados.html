@@ -1,0 +1,320 @@
+<h2>estilos que he usado</h2>
+<p>
+<pre>
+  <div class="container-button">
+    <button><a href="#colores_textos-contenedores">colores letras y contenedores</a></button>
+    <button><a href="#textos">textos</a></button>
+    <button><a href="#contenedores">contenedores</a></button>
+    <button><a href="#input">input</a></button>
+    <button><a href="#imagenes">imagenes</a></button>
+    <button><a href="#colores-degradados">colores degradados</a></button>
+    <button><a href="#position">position</a></button>
+    <button><a href="#flex">flex</a></button>
+  </div>
+para recetear esos valores en todo el body
+*{margin: 0; padding: 0; box-sizing: border-box;} para resetear los valores que trae el body
+*{box-sizing: border-box;}
+    
+:root {--colorlogo: #ae4c2bcb;--colorParrafo: #333335;--colorTitle: #1B3661;} variables con css nativo
+    
+/* ********** Reset ********** */
+html {box-sizing:border-box; scroll-behavior:smooth; margin:0; padding:0; box-sizing: border-box;}
+*,
+*::after,
+*::before {box-sizing:inherit;}
+
+- reseteo para el modelo de caja -- body {margin:0; padding: 0;} parecido al reseteo 
+
+para eliminar los flotados se hace juntos con un div- class=clearfix -div .clearfix{float:none; clear:both;}
+:root{
+--colorrojo: red;
+--colorhover: blue;
+--colortitulo: black;
+}
+<h4 id="colores_textos-contenedores" style="margin-bottom:0px;color:red;padding-top: 80px;">tipos de colores para letras o cajas</h4>
+color: rgba(red, green, blue, alpha);  alpha= transparencia, van del 0 al 255 los colores rgba 
+color: rgba(0, 255, 0, 1); == verde
+color: red; -- el nombre del color directamente 
+color: #ff0000; -- Códigos hexadecimales
+color: hsla(hue, saturation, lightness, alpha); -- Códigos HSLA (con transparencia)
+opacity:0.7;---------------------------- para volver mas clarito el color
+color: darken(#537266,20%);- - - - - - - para oscurecer un color el tanto porciento que queramos
+background: lighten(#822225,15%); - - - -para aclarar un color el tanto porciento que queramos
+
+.rowBackground:nth-child(odd) {
+  background-color: #f2f2f2; /* Cambia el color de fondo para las filas impares o hijos especificos de un contenedor según tus necesidades */
+}
+.rowBackground:nth-child(even) {
+  background-color: #fff; /* Cambia el color de fondo para las filas pares o hijos especificos de un contenedor
+   según tus necesidades */
+}
+<h4 id="textos" style="margin-bottom:0px;color:red;padding-top: 80px;">textos</h4>
+en google fonts escojo la letra despues escojo los grosores que yo quiera usar 100 300 400 500 900 ya seleccionadas mis 
+letras le doy click embed me da el link que coloco en el head y css font-family que coloco en css
+:root{font-size:62.5% }    ------ saco en porcentaje en vase a 16px seria 10px 
+font-size:10vw ---- darle el tamaño con el tamaño de la pantalla es bien porque se adapta al tamaño de pantalla si ponernos 
+a hacer tantos @medias 100 es el 100%
+
+font-size:20px; ----tamaño del texto en toda la web o en la etiqueta donde tenga el texto que quiero modificar
+padding-top: calc(50vh - 50px); --- para que mi caja se coloque en el medio de la pantalla la mitad vh y la mitad del height 
+de titulo 
+
+letter-spacing: 4px; -- espacio entre las letras
+letter-spacing: -0.01rem; -- esto es para que la letra se pegue mas
+line-height: 100px; -- texto dentro de una caja con el mismo height de 100px me centrara este texto
+line-height: 75px; -- distancia entre las lineas si es una sola se creara como un paddin del texto
+line-height:2.5; -- para separar las lineas
+line-height:1; -- para unir las lineas -----------50px agrandaremos el espacio 
+
+text-transform: uppercase; -- coloca las letras en mayuscula
+text-transform: lowercase; coloca las letras en minuscula
+text-align: justify; - - para que se alinee el texto a los dos lados pero me deja espacios por dentro entre palabras
+text-align: center; - - para que el texto se centre
+text-align: left; ------ para que se alinee a la izquierda 
+text-shadow: none; ------------- elimina la sombra si la trae por defecto
+text-decoration: overline;underline;line-through;blink,none - -para subrayar por debajo por encima textos, linea como una tacha en la palabra
+
+font-family:arial,helvetica,sans-serif; ----fuente para el documento completo varias por si el navegador no tiene una tome la otra 
+font-style:italic;  --estilo de la letra hay varias pero con esto me toma la que yo quiera de mi font-family
+
+font-weight:14px; 100 900 de grosor- - -tamaño o grosor  del texto segun la fuente
+font-weight: bold;- -para que se vuelva mas gruesa la letra*
+*{font-size:62.5%} esto hara que 1rem enlos textos equivalga a 10px ser un numero entero mas facil de manejar  
+
+white-space:pre-wrap;   Los espacios en blanco se respetan exactamente como están en el HTML y el texto no se ajusta hasta que hay un salto de línea en el código.
+    
+<h4 id="contenedores" style="margin-bottom:0px;color:red;padding-top: 80px;">contenedores</h4>
+- javi recomienda hacer modificaciones al ancho width que el alto height sea automatico a menos que vaya a tener una altura especifica para eso esta el padding y margin
+
+width:max-conten; para que el ancho del contenedor se ajuste al texto y no se desborde
+
+box-shadow: 0px 0px 2px 2px red;- - - - /*sombra ((( 1positivo=derecha,negativo=izquierda 2 positivo=abajo, negativo=arriba 3 difuminacion 4 propagacion )))
+-webkit-box-shadow:0px 0px 2px 2px red;
+-moz-box-shadow:0px 0px 2px 2px red;  --estas dos etiquetas para que reconoscan el estilo de las sombras en navegadores mas antiguos 
+    
+    
+padding-top: calc(50% - 500px);
+padding : 50px 50px 50px 50px;  --------------(((((arriba, derecha, abajo, izquierda))))
+
+margin: 50px 40px;       ------------------ (((((arriba.abajo ,izquierda derecha)))))
+margin: 50px 50px 50px 50px;  --------------(((((arriba, derecha, abajo, izquierda))))
+margin: auto;  ---- la caja se centrara en el medio de la pantalla hablando de los lados 
+margin-top: calc(50vh - 50px); ----para que mi caja se coloque en el medio de la pantalla la mitad vh y la resta de la mitad del tamaño de la caja
+
+box-shadow: inset 0 0 5px 2px yellow; ---- sombra por dentro de la caja o un input
+
+border:2px solid black;
+background: linear-gradient(red, blue);- - -para colocar porcentajes en cada color
+overflow: hidden;- - para que el contenido que se salga de la caja no se muestre
+overflow: auto;  si es necesario me agrega scroll de forma automatica tanto en x como en y si es necesario
+overflow-y: auto; -- si la pantalla es pequeña me salga el scroll hacia abajo
+.menu_tipos::-webkit-scrollbar-thumb {background: #bf3236; border-radius: 20px;} para darle estilos a las barras de scroll puede que no funcionen en todos los navegadores
+
+background: olive;
+width: 300px;   ----ancho
+width: 100vw; -----me tomara todo el ancho de pantalla (puede que ocurrar fallas dependiendo del navegador
+height: 300px; ----alto
+height: 100vh; ---- me toma todo el alto de pantalla
+height: calc(100vh - 20px); ---- me tomara todo el alto de pantalla menos la pestaña de los iconos de navegacion 
+
+max-width:972px;-----------si la pantalla sigue creciendo este sea el maximo ancho que pueda tener 
+
+width: 400px;
+max-width: 100%;-------- para que cuando haga responsive y llegue al tamaño de pantalla igual al ancho de 400px ocupe todo el ancho de pantalla
+
+border-top:15px;
+border-top: 15px solid #ff0000;
+border-bottom: 15px solid #000000;
+border-rigth:12px;
+border-radius: 10px 50px 100px 150px; (((((topL,topR,bottomR,bottomL))))) 
+border-radius: 50%; ---- para que mi caja se vuelva redonda partiendo de una caja cuadrada 
+border: 0;
+outline: 0; me elimina el borde que sale al hacer foco que traen predeterminado el navegador
+
+cursor: not-allowed; --- con ese estilo me aparece un simbolo de negado para oprimir
+
+<h4 id="input" style="margin-bottom:0px;color:red;padding-top: 80px;">input</h4>
+text-align: center;    -------------- comensare a escribir el texto dentro del input desde el centro
+outline: none;    -------------- esto es para que el boton no le aparesca borde
+border:2px solid black;
+.btn{margin-top: 10px;margin-left: 5px;padding: 5px;color: #fff;border-radius: 5px;
+&:hover{
+  cursor: pointer; -- para que me aparezca la manita cuando el cursor haga hover
+  opacity:0.7; 
+}
+}
+.ph-center {height: 100px;}
+.ph-center::-webkit-input-placeholder {text-align: center;line-height: 100px;/* Centrado vertical */}
+input::placeholder {color: red;}----- color del placeholder de todo el formulario 
+.error::placeholder {color: red;}---- para un input especifico 
+textarea{font-family: inherit; resize:none; este estilo es para quitarle la flechita que trae en la esquina para que el usuario no pueda agrandar esa textarea}
+    
+<h4 id="imagenes" style="margin-bottom:0px;color:red;padding-top: 80px;">imagenes</h4>                   
+background: url("../img/lines.png") repeat-x; tambien se puede repeat-y un patron en y recordar quitar cover porq este me acomoda la imagen en el espacio que hay 
+background-image: url("../imagenes/triangulo.jpg"); --- puede ser una imagen guardada en una carpeta o directamente de internet 
+background-position:center; --- para que la imagen se centre me mostrara el centro de la imagen
+background-size:cover; ---- la agranda al tamaño de la pantalla en la misma proporcion el ancho, la muestra en el espacio que hay de la mejor manera posible
+background-size:100% 100%; --- ancho y alto 
+background-size: contain;  --- saca toda la imagen en tamaño real  en el espacio si sobra espacio la repite
+background-repeat: no-repeat; --- para que no se repita con contain pero me le coloca algun color donde se repetia 
+background-attachment: fixed; --- para que la imagen se quede quieta donde la he colocado 
+.mi-elemento {width: 300px; /* Ancho del contenedor */height: 200px; /* Altura del contenedor */object-fit: cover;}
+object-fit: cover; --- para que se vea mejor la imagen se adapte al ancho del contenedor si que se deforme
+object-position 50% 50% x y valor por defecto 50% 0% con el cero veo la imagen desde arriba 
+.gray-scale {filter: grayscale(1);   se vuelve la imagen gris}
+transition: opacity 1s ease
+opacity:0; visibility:hidden me oculta la imagen y no me deja interactuar con ella
+opacity:1; visibility:visible me vuelve a mostrar la imagen y me deja interactuar con ella
+
+<h4 id="colores-degradados" style="margin-bottom:0px;color:red;padding-top: 80px;">colores degradados</h4> 
+body{width: 100%;height: 100vh; ---para que se muestre en todo el alto de la pantalla*/ background: linear-gradient(red, blue);---para colocar porcentajes en cada color
+background: linear-gradient(red 30%, blue 70%);---/*para colocar porcentajes de cada color*/
+background: linear-gradient(30deg, red 30%, blue 70%);---/*grados de desnivel que quiero que salga ese degradado*/
+background: linear-gradient(to right, red 30%, blue 70%);---/*top. left. bootom de un lado a otro*/--- to top --- to left
+background: linear-gradient(darken(#537266,10%),darken(#537266,20%)---/*para colocar diferentes porcentajes de color en una box*/);
+background: linear-gradient(#69857a 60%,transparent 40% /*de esta manera corte el color y la otra parte quedo transparente*/);}
+<h4 style="margin-bottom:0px;color:red"">hover maneras de transiciones</h4>
+.otro-elemento {font-size: 16px;color: green;border:2px solid;transition: all 0.3s ease; }
+.otro-elemento:hover {color: red; /*se activará la transición si le coloco all para cualquier estilo dentro del hover*/} 
+transition: 0.5s ease; -- si no le coloco para que es estilo es el cambio me tomara todos los cambios que hayan en el hover 
+transition: padding 0.5s ease; -- me tomara el cambio solo para el padding si coloco otros estilos dentro del hover me los hara de una vez
+transition: all 0.3s ease; --- me tomara la transicion para todoslos cambios que se hagan en el hover
+<h4 style="margin-bottom:0px;color:red"">estilos del menu</h4>          
+#menu ul{list-style: none;    ---para que ya no me paresca una lista }
+.menu ul li{height: 46px;  --- puede ser aqui o no llevar esto y se aplica en a line-height:150px; tamaño del height 150px para que se centre  display: inline-block;
+float: left;transition: all 300ms; /*para crear una lista un menu*/}
+.menu a{display: block;color:white;text-decoration: none; --- esta es para eliminar la rayita que trae por defecto la etiqueta a
+padding-left: 30px;padding-right: 30px;creo que para colocarle padding tengo que volverla en bloque 
+margin-left: 20px;margin-right: 20px;)tambien puedo usar margin para separar a los lados 
+line-height:150px;
+a:hover{color: blue;}
+<h4 style="margin-bottom:0px;color:red"">para crear un borde animado en una caja</h4>         
+.caja:hover{outline-width: 10px;   /*para crear un borde animado en una caja */outline-style: dashed;outline-color: yellow;}
+<h4 style="margin-bottom:0px;color:red"">cosas adicionales</h4> 
+float: left; --- para que un elemento flote si es una lista de izquierda a derecha (1234)
+float:rigth; --- para que el elemento flote de derecha a izquierda (4321)
+color:#61dafb !important;
+width: max-content;---para que las letras del li en este caso no se me desborden por ser de dos o mas palabras          
+z-index: 100; este por encima de todo en el eje z todo lo menor a este numero siempre estara por debajo 
+z-index: 10;este por debajo del 100
+<h4 style="margin-bottom:0px;color:red"">animacion por estudiar</h4>
+transform:rotate(20deg); -- para que rote una caja los grados deseados - esta es una propiedad que no leen todos los navegadores
+.nav-button:focus:not(:focus-visible){ -- esto es para que el boton no le aparesca borde solo si lo hago con el teclado
+outline: none;
+}
+outline: none; --- para que al darle clip encima del elemento no me le aparezca en borde que sale por defecto*
+height:inherit; -- heredara del padre su altura
+.fade{
+animation-name: fade;- - - - - - - - - - - - - - - - - - -/*capturo con la clase la etiqueta a la cual le voy a hacer una animacion*/ 
+animation-duration: 1.5s;- - - - - - - - - - - - - - - - -/*el tiempo que durara la animacion*/
+}
+@keyframes fade {
+from {opacity: .4;} - - - - - - - - - - - - - - - - - - - /*dentro de este keyframes coloco lo que quiero que haga esta animacion en este caso un cambio de opacidad*/
+to{opacity:1;}
+}
+<h4 id="position" style="margin-bottom:0px;color:red"">position</h4>
+position:static  --- es la que trae de serie no me hace nada 
+position:absolute; -- si la caja que lo contiene tiene una position: relative , comienza posicionado desde hay caso contrario desde el comienzo de la pantalla
+position:relative; -- dentro de su posicion normal o de la caja que lo contiene si modifico su posicion este lo hara desde esa posicion de arranque
+position:fixed; -- su posicion inicial sera desde la caja que lo contiene cuando lo intento mover de esa caja los valores que yo le coloque los tomara desde toda 
+la pantalla al hacer scroll se movera todo lo de debajo pero este se mantendra siempre en el mismo lugar
+position:sticky; -- al hacer scroll se movera pero no se saldra de el contenedor que lo contiene y solo se le modifica el top si lo uso en un header este sera fijo y el contenido que agrege 
+despues de el saldra despues del header es una especie de fixed pero si permite moverlo un poco
+<h4 style="margin-bottom:0px;color:red"">enlaces a otras paginas</h4>
+a href="https://twitter.com/" target="_blank" a -- redirigirnos a twitter target="_blank" para que se abra en otra pestaña
+<h4 style="margin-bottom:0px;color:red"">responsive</h4>
+tamaños mas comunes para hacer responsive 
+meta name="viewport" content="width=device-width, initial-scale=1.0" --------- diferentes resoluciones etiqueta con los atributos para hacer responsive
+-360×640 (móvil pequeño)
+-375×667 (móvil medio)
+-768*1024 (ipad mini)
+-1366×768 (ordenador portátil medio)
+-1440×900 (escritorio medio)
+-1920×1080 (escritorio grande)
+-escritorios muy grandes 
+@media screen and  (min-width: 1200px) {} todo lo que este por encima de esto se modificara
+
+-tables en horizontales y escritorios normales
+@media (min-width: 768px) and (max-width: 1199px) {}
+
+-moviles en horizontal o tablets en vertical 
+@media screen and (max-width: 676px) {}
+
+-moviles en vertical
+@media screen and (max-width: 480px) {}
+<h4 id="flex" style="margin-bottom:0px;color:blue">display:flex</h4>
+-display:flex; al contenedor padre todos los hijos se colocaran uno al lado del otro en un tamaño de pantalla grande me respetara el width que yo le coloque 
+si la pantalla la hago mas pequeña se adactara al tamaño de patalla y ya no me respetara esa medida (me une los elementos margin:0 padding:0)
+este contenedor tiene que tener medidas en % sino se vuelve una galleta si le coloco altura el tambien vaa acomodar los elementos espaciados con respecto a esa altura 
+--((cuando utilizo flex en contenedor padre debe llevar height))--
+<h5 style="margin-bottom:0px;color:aqua">((horizontal))</h5>
+-flex-direction: row;                   estilo por defecto se colocan al lado izquierdo comienzan de izquierda a derecha
+-flex-direction: row-reverse;           si tiene numeros dentro de cada elemento estos comienzan alcontrario o al revez
+-flex-direction: column;                los elementos se colocan en columna a la izquierda 1-4 ejemplo justify center es vertical y el aling center horizontal (flex-column))
+-flex-direction: column-reverse;        4-1 (flex-column-reverse)
+-flex-wrap:wrap;                        con este si me respeta el width que yo le haya colocado a cada elemento y al hacer responsive cuando ya no quepan elementos en esa linea me los manda a la linea de abajo en ((px))
+-flex-wrap:wrap-reverse;                (flex-wrap)
+<h5 style="margin-bottom:0px;color:aqua">((con justify-content ordeno horizontalmente))</h5>
+justify-content: flex-start;           las cajas en el comienzo del contenedor                                                       (justify-content-start)
+justify-content: flex-end;             elementos dentro del contenedor al final de el                                                (justify-content-end)
+justify-content: center;               elementos dentro de la caja al centro                                                         (justify-content-center)
+justify-content: space-around;         separa las cajas con espacios uniformes                                                       (justify-content-around)
+justify-content: space-between;        si son tres elementos dos a los lados y uno en el centro                                      (justify-content-between)
+justify-content: space-evenly;         los separa con espaciados mas centrados entre ellos                                           (justify-content-evenly)
+
+<h5 style="margin-bottom:0px;color:aqua">((aling-items ordeno verticalmente))</h5>         
+aling-items:flex-star;                 los tres elementos se posicionan alcomienzo parte superior                                    (align-items-start)
+aling-items:flex-end;                  los tres elementos se posicionan alcomienzo parte inferior                                    (align-items-end)
+aling-items:center;                    me lo centra de arriba abajo                                                                  (align-items-center)
+aling-items:stretch;                   lo trae por defecto intenta ocupar el ancho maximo de la caja si el item no le coloque altura (align-items-stretch)
+                                                                                                                                aling-items-between
+<h5 style="margin-bottom:0px;color:aqua">((vertical))</h5>         
+align-content:space-around;            espacios uniformes
+align-content:space-between;           hacia los lados 
+align-content:space-evenly;            espacios uniformes mas centrados   (align-items-stretch) 
+align-items: baseline;                 se me alinea verticalmente tomando en cuenta la base del elemento interno si son numero sque tengan diferentes tamaños (align-items-baseline)
+
+<h5 style="margin-bottom:0px;color:aqua">((forma mas corta de escribir esas propiedades en flex))</h5>        
+flex-flow: row wrap;
+
+((otra propiedad a los items a hijos del contenedor ))
+
+order: 1;
+order: 2;             de esta manera puedo darle orden a los items de la manera que yo quiera 
+flex-grow: 10 
+flex-grow: 1          cuanto derecho a espacio tiene para utilizar su elemento 
+flex-shrink:0; no puede encogerse menos del tamaño que tiene en su width
+flex-basis: 200px o 20% ; es como el width pero en flex 
+flex: 1 10 200px; una forma mas corta de colocar las tres propiedades anteriores 
+<h4 style="margin-bottom:0px;color:blue">seudo elementos</h4>
+.titulo.titulo1{ dos nombres en el mismo class los separa solo un punto solo me modifica esa etiqueta 
+color: yellow;
+background-color: rgb(58, 38, 38);
+}
+<h5 style="margin-bottom:0px;color:aqua">class,id,etiqueta todos juntos</h5>
+.parrafo, #parrafopegado, h1{ class, id, h1 todas juntas si son de diferentes etiquetas se separa con una coma seguido de su simbolo que le corresponda
+color: yellowgreen;
+}
+.titulo p{}
+<progress value="80" min="0" max="100"></progress> etiqueta de progreso
+<progress value="60" min="0" max="100"></progress>
+progress {
+width: 100%;
+height: 1rem;
+background-color: var(--gray-color);
+}
+
+progress::-webkit-progress-bar {
+background-color: var(--gray-color);
+}
+
+progress::-webkit-progress-value {  /*google chrom zafari e*/
+background-color: var(--gray-dark-color);
+}
+
+progress::-moz-progress-bar {    /*firekox*/
+background-color: var(--gray-dark-color);
+}
+.text-truncate {overflow: hidden;text-overflow: ellipsis; white-space: nowrap;} clase de boostrap para que no se desborde un texto cuando finaliza en espacio salen puntos 
+    </pre>
+</p>

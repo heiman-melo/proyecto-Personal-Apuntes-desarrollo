@@ -1,0 +1,352 @@
+
+/* **********     menu-hamburguesa     ********** */
+@import 'css/1_menu-hamburguesa.css';
+/* **********     Reset CSS     ********** */
+/* colores rgba  */
+:root {
+  --main-font: sans-serif;
+  --font-size: 16px;
+  --main-color: #f7df1e;
+  --second-color: #222;
+  --main-modal-color: rgba(247, 222, 30, 0.85);
+  --second-modal-color: rgba(34, 34, 34, 0.85);
+  --container-width: 100%;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: var(--main-font);
+  font-size: var(--font-size);
+  scroll-behavior: smooth;
+  /*transicion mas suave en el scroll*/
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  /*todo lo que se desborde en horizontal se oculte y no genere scroll  */
+}
+
+img,
+video {
+  max-width: 100%;
+  /*para que se adapten al maximo ancho de su contenedor*/
+  height: auto;
+}
+
+.flex-row-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header {
+  position: sticky;
+  z-index: 997;
+  top: 0;
+  padding: 0.6rem 1rem;
+  background-color: var(--main-color);
+  color: var(--second-color);
+}
+
+.header h1 {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1rem;
+}
+
+@media (min-width: 600px) {
+  .header h1 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header {
+    padding: 1rem;
+  }
+  .header h1 {
+    font-size: 1.5rem;
+  }
+}
+pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+  text-align: left;
+  overflow-x: auto;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.section {
+  padding: 1rem;
+  padding-top: 2.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: var(--container-width);
+  min-height: 100vh;
+  text-align: center;
+}
+
+/* Tablet */
+@media (min-width: 600px) {
+  .section {
+    padding: 1.5rem;
+    padding-top: 3rem;
+  }
+  pre {
+    font-size: 0.92rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .section {
+    padding: 2rem;
+    padding-top: 4rem;
+    max-width: 1000px;
+  }
+  pre {
+    font-size: 1rem;
+  }
+}
+.borde-button{
+  padding: 10px;
+  border: 2px solid var(--main-color);
+}
+
+/* **********     Eventos del Teclado     ********** */
+
+.stage {
+  display: flex;
+  min-height: 50vh;
+  background-color: var(--second-color);
+}
+
+.ball {
+  margin: auto;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: var(--main-color);
+}
+
+/* 7) **********     ScrollTopButton     ********** */
+.scroll-top-btn {
+  position: fixed;
+  z-index: 999;
+  bottom: 0.6rem;
+  right: calc(3.2rem + 1.5vw);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  font-weight: bold;
+  background-color: var(--main-color);
+  color: var(--second-color);
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+  transition: all 0.3s ease-out;
+}
+
+.scroll-top-btn:hover {
+  background-color: var(--second-color);
+  color: var(--main-color);
+}
+
+@media (min-width: 600px) {
+  .scroll-top-btn {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.6rem;
+    right: calc(4rem + 1vw);
+  }
+}
+
+@media (min-width: 1024px) {
+  .scroll-top-btn {
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;
+    right: calc(4.25rem + 1vw);
+  }
+}
+
+/* dicplay:none no es animable con css */
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.container-button {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* **********     DarkThemeButton     ********** */
+.dark-theme-btn {
+  position: fixed;
+  z-index: 999;
+  bottom: 0.8rem;
+  left: 0.8rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  font-weight: bold;
+  background-color: var(--main-color);
+  color: var(--second-color);
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+  transition: all 0.3s ease-out;
+}
+
+.dark-theme-btn:hover {
+  background-color: var(--second-color);
+  color: var(--main-color);
+}
+
+@media (min-width: 600px) {
+  .dark-theme-btn {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .dark-theme-btn {
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;
+    left: 1vw;
+  }
+}
+
+.dark-mode {
+  background-color: var(--second-color);
+  color: var(--main-color);
+}
+
+/* **********     Responsive: tablas e iframes en secciones     ********** */
+
+/* Tablas que pueden aparecer en el contenido de las secciones */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+th, td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--main-color);
+  text-align: left;
+}
+
+/* Wrapper para que tablas anchas hagan scroll horizontal en móvil */
+.tabla-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1rem 0;
+}
+
+/* Iframes responsivos */
+.iframe-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+}
+
+.iframe-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Imágenes y videos siempre dentro del contenedor */
+img, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* **********     Skeleton Loader     ********** */
+@keyframes skeleton-pulse {
+  0%   { background-color: #d0d0d0; }
+  50%  { background-color: #b8b8b8; }
+  100% { background-color: #d0d0d0; }
+}
+
+@keyframes skeleton-pulse-dark {
+  0%   { background-color: #3a3a3a; }
+  50%  { background-color: #4a4a4a; }
+  100% { background-color: #3a3a3a; }
+}
+
+.skeleton-loader {
+  padding: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.sk-titulo,
+.sk-linea {
+  border-radius: 6px;
+  animation: skeleton-pulse 1.4s ease infinite;
+}
+
+.sk-titulo {
+  height: 1.8rem;
+  width: 35%;
+  margin-bottom: 1.5rem;
+}
+
+.sk-linea {
+  height: 0.9rem;
+  margin-bottom: 0.75rem;
+  width: 100%;
+}
+
+.sk-linea.sk-corta {
+  width: 60%;
+}
+
+.dark-mode .sk-titulo,
+.dark-mode .sk-linea {
+  animation-name: skeleton-pulse-dark;
+}
+
+/* **********     Error de carga de sección     ********** */
+.seccion-error {
+  color: var(--main-color);
+  background-color: rgba(34, 34, 34, 0.08);
+  border: 1px solid var(--main-color);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+  max-width: 500px;
+  margin: 2rem auto;
+  line-height: 1.6;
+}

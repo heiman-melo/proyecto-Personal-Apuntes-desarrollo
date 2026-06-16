@@ -1,0 +1,139 @@
+<h2>estilos material ui</h2>
+<p>
+<pre>
+    <div class="container-button">
+      <button><a href="#abreviaciones">abreviaciones de estilos</a></button>
+      <button><a href="#formasEstilos">formas de agregar estilos</a></button>
+      <button><a href="#componentes">componentes principales</a></button>
+      <button><a href="#theme">theme como se cambia</a></button>
+      <button><a href="#creacionProyecto">creacion del proyecto y ui</a></button>
+      <button><a href="#instalacionUI">instalacion de ui</a></button>
+      <!-- <button><a href="#textos">textos</a></button> -->
+    </div>
+<p id="abreviaciones" style="margin-bottom:0px;color:rgb(75, 60, 206);font-size:16px;font-weight: bold;padding-top: 80px;">abreviaciones parecidas a boostrap</p>
+m   margin
+mt  margin-top
+mr  margin-right
+mb  margin-bottom
+ml  margin-left
+mx  margin-left,margin-right
+my  margin-top,margin-bottom
+p   padding
+pt  padding-top
+pr  padding-right
+pb  padding-bottom
+pl  padding-left
+px  padding-left,padding-right
+py  padding-top,padding-bottom
+<p id="formasEstilos" style="margin-bottom:0px;color:rgb(75, 60, 206);font-size:16px;font-weight: bold;padding-top: 80px;">formas de agregar estilos</p>
+-'<'Box maxWidth="md" sx={{border:2,borderColor:"peru",p: 2,m:2,bgcolor: "#111",color:"white",'&:hover':{backgroundColor:'primary.light',opacity:[0.9, 0.8, 0.7],},}}'>' 
+<p id="formasEstilos" style="margin-bottom:0px;color:rgb(249, 0, 0);font-size:16px;font-weight: bold;display: inline;">*</p>tomando en cuenta que dependiendo del estilo puede que el numero equivalga al mismo numero en px o se multiplica por un numero  ejemplo 8px 
+
+-sx={{ display: "grid", gap: 4 }}  
+
+-style={{ width: '500px', backgroundColor: 'red'}} se puede aplicar a cualquier componente de react incluyendo material ui
+
+-sx={{ width: 250 }} hasta 1 es porcentaje despues de uno son px 
+
+-sx={{ flexDirection: 'column' }} flex
+
+-const typographyStyle = {borderRadius: "150px",height:"150px",lineHeight: '150px'};
+
+-puedo crear un objeto y pasarlo dentro de sx{typographyStyle} o de la forma que esta abajo añadiendolo a otros estilos
+
+-style={{width:"150px", backgroundColor:"red",...typographyStyle}} border={4}  textAlign="center" margin="auto" mt={6}
+
+- '<'Typography variant="h6" component="h2" align="center" mt={2} border={2}  mb={2} borderColor="red">6 Grid'</'Typography> esta es otra forma de agregar estilos directamente en la etiqueta
+
+<p id="componentes" style="margin-bottom:0px;color:rgb(75, 60, 206);font-size:16px;font-weight: bold;padding-top:80px;">algunos o principales de componentes material ui</p>
+1) '<'Container maxWidth="xs" sx={{ border: 2, boxShadow: 1, pb: 2,}}> '<'/Container>
+centra su contenido horizontalmente
+
+2) '<'Typography variant="h1" component="h2" mb={2} color="primary" align="center" boxShadow={2} pb={2}>Soy un h1 '<'/Typography>
+component = h2 esta sera la etiqueta , Este componente es compatible con todos system props,
+variant = tendra estilos para que parezca un h6 
+
+3) <'Box sx={{ border: 2, borderColor: "peru", p: 2, bgcolor: "#111", color: "white",}}> </'Box>
+sirve como un componente contenedor
+
+4) button y iconos  existen botones que se les puede agregar iconos 
+  <'Button
+    variant="contained"
+    color="info"
+    startIcon={<'AirplanemodeActiveIcon />}
+  >
+    Botón personalizado
+  </'Button>   
+
+
+<p id="theme" style="margin-bottom:0px;color:rgb(75, 60, 206);font-size:16px;font-weight: bold;padding-top: 80px;">ThemeProvider forma de cambiar el tema principal de material ui</p>
+import { ThemeProvider } from '@material-ui/core';
+1) esta es una forma con una variable si va a ser en el archivo principal
+const theme = {
+  palette: {
+    primary: {
+      main: '#000',
+    },
+  },
+};
+const App = () => {
+  return (
+    <ThemeProvider theme={theme}>
+      <Button variant="contained" color="primary">
+        Este es un botón con el tema personalizado.
+      </Button>
+    </ThemeProvider>
+  );
+};
+2) esta es otra forma con una funcion de esta manera voy a poder usar este theme en cualquier componente ya si este no fue creado en en el archivo principal
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+const theme = createTheme(); llamo a la funcion puede ser fuera de la funcion del componente 
+const theme = createTheme({
+  palette: {
+    mode: 'light',
+    primary: {
+      main: '#1976d2',
+    },
+    secondary: {
+      main: 'rgba(136,10,218,0.49)',
+    },
+    warning: {
+      main: '#ed6c02',
+    },
+    success: {
+      main: '#2e7d32',
+    },
+  },
+});
+
+return (  
+  '<'ThemeProvider theme={theme}>  encierro lo que mostrara mi componente con esta etiqueta parecido a como se hace en el archivo principal
+    '<'Grid container component="main" sx={{ height: "100vh" }}>
+      '<'CssBaseline />
+)
+
+-variant="contained" forma de especificar estilos de un componente hay diferente variant dependiendo del componente
+
+<p id="creacionProyecto" style="margin-bottom:0px;color:rgb(75, 60, 206);font-size:16px;font-weight: bold;padding-top: 80px;">creacion del proyecto</p>
+-crear una carpeta con el nombre que yo le voy a colocar al proyecto, arrastro esa carpeta a visual studio code , ctrl+ñ abro la consola , npm create vite@latest . espacio + . para que haga la instalacion en este mismo directorio o esta misma carpeta
+-npm create vite@latest .     de esta forma quedaria
+-despues le damos a las flechas para abajo, react , javaScript 
+-npm i   para hacer la instalacion de todos los modulos
+<p id="instalacionUI" style="margin-bottom:0px;color:rgb(75, 60, 206);font-size:16px;font-weight: bold;padding-top: 80px;">instalacion de matrial ui</p>
+-npm install @mui/material @emotion/react @emotion/styled     hacemos esta intalacion completa material ui y otras cosas para mejorar las carpwtas de estilos
+-npm install @fontsource/roboto     material ui utiliza roboto como su fuente de texto  por eso la instalamos tambien 
+-se colocan en el main.jsx que es el archivo principal antes del la importacion del index.css por si despues queremos cambiar algunos estilos
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
+index.css 
+-npm install @mui/icons-material   de esta manera instalamos los iconos  no es necesario hacerle un import solo a las fuentes de los tipos de letras
+-npm install @mui/lab #LoadingButton etc instalacion del loadingButton es una nueva funcionalidad que se esta provando al parecer ya funciona
+-es7 react/redux/graphQl  extencion que recomienda para ocupar unos chort cup
+-VSCode: extenciones en la guia de bluuweb
+-CssBaseline  si se coloca en el main.js me resetearan los estilos y toda la aplicacion funcionara con los estilos de material ui 
+
+  </pre>
+</p>
