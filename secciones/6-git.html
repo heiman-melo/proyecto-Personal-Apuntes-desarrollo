@@ -12,6 +12,11 @@ git commit -am "mensaje del commit" (agrega todos los archivos y guarda el mensa
 git commit --amend --no-edit (commit de nuevos cambios agregados al mismo commit anterior sin editar el mensaje del último commit)
 git commit --amend -m "nuevo mensaje para el último mismo commit solo se cambiara eso el mensaje"
 
+comando para hacer un cambio en el mismo commit
+git add .
+git commit --amend --no-edit     guardar en el mismo ultimo commit
+git push origin HEAD --force-with-lease    empujar al remoto al mismo head 
+
 <p style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold;">pasarme y ver ramas cambiar nombre</p>
 git checkout -b nombre_de_tu_rama  (crear una nueva rama con git)
 git log   (me muestra los cambios que se han hecho en esa rama)
@@ -50,6 +55,9 @@ git reset --hard rama donde necesito regresar cambios@{"30 minutes may"} no esto
 git commit -m "Mensaje del commit"="(fix o feat(mvc): texto de lo que hice #8245 numero de la tarea para que al subir a development me muestre en la tarea que ya se subio)"
 git submodule update --remote --merge ,obtener ultimos cambios del remoto
 git fetch muestra los cambios que hay en el remoto sin integrarlos para ver que cambiaron
+
+git config core.ignorecase false agrega que si se pueda ver el cambio de una letra del nombre de un archivo
+git config core.ignorecase true agregua que no se inmute ante diferencia letras en el nombre de un archivo
 
 <p style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold;">cuando hay librerias que te piden un commit con un formato especifico</p>
 git commit -m "tu nuevo mensaje" --no-verify

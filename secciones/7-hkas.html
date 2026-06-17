@@ -1,0 +1,281 @@
+<h2>7 hkas</h2>
+<div class="container-button">
+   <button><a href="#solicitud-de-PR">solicitud de PR</a></button>
+   <button><a href="#ramas-en-el-proyecto">creacion de ramas en el proyecto</a></button>
+   <button><a href="#sql-actualizar">sql servers como ingresar data y actualizar</a></button>
+   <button><a href="#servicios">servicios de cada modulo</a></button>
+   <button><a href="#sectionLogeo">credenciales de logeo</a></button>
+   <button><a href="#tabDynamic">tabDynamic</a></button>
+   <button><a href="#Modulos">analisis de modulos</a></button>
+   <button><a href="#selectHkas">select hkas</a></button>
+   <button><a href="#entitylookupOpenCloseForm">entitylookupOpenCloseForm</a></button>
+   <button><a href="#typeheader">typeheader</a></button>
+   <button><a href="#datepicker">datepicker</a></button>
+   <button><a href="#aws_vpn">aws-vpn</a></button>
+</div>
+<p>
+<pre>
+<div hidden>
+@*de esta manera se comenta codigo cshtml*@
+
+1) docker-compose up aliviauth 
+2) docker-compose up gateway
+3) docker-compose up lookuptables
+
+4) docker-compose build mvc
+4.1)docker-compose up mvc 
+5) (comandos para actualizar cambios al refrescar)
+docker-compose -f docker-compose.yml -f docker-compose-dev.yml build mvc
+docker-compose -f docker-compose.yml -f docker-compose-dev.yml up mvc
+docker-compose up claims
+docker-compose up providers members payers
+docker-compose build providers
+docker-compose build claims
+docker-compose up --build claims compila si no a compilado y levanta o solo levanta si ya esta compilado
+
+
+docker-compose up sqlserver
+<span style="color: rgb(255, 0, 0);">ahora solo con estos comandos despues de instalar docker desde la carpeta metarepo y ya funcionara para trabajar con la data de QA </span>
+<span style="color: rgb(0, 255, 51);">
+docker volume create --name=sqlserverdata
+docker volume create --name=rabbitmqdata 
+docker-compose up rabbitmq sqlserver
+</span>
+git submodule foreach 'git checkout development || git checkout master || git checkout wikiMaster ||:' comando para todo en los servicios en dev
+
+git submodule foreach 'git pull ||:' este ni se supo
+
+dotnet run --project .\web_client\Mvc\PayerPro.Mvc\PayerPro.Mvc.csproj && 
+dotnet run --project .\services\Claims\Claims.Api\Claims.Api.csproj && 
+dotnet run --project .\services\Payers\Payers.Api\Payers.Api.csproj && 
+dotnet run --project .\services\Members\Members.Api\Members.Api.csproj && 
+dotnet run --project .\services\LookupTables\LookupTables.Api\LookupTables.Api.csproj  &&
+dotnet run --project .\gateway\GatewayOcelot\GatewayOcelot.csproj && 
+dotnet run --project .\services\Providers\Providers.Api\Providers.Api.csproj && 
+dotnet run --project .\services\EDI\TradingPartner\TradingPartner.csproj && 
+dotnet run --project .\services\EDI\EDIServicesApi\EDIServicesApi.csproj && 
+dotnet run --project .\services\EmailApi\EmailApi.csproj
+
+</div>
+<p id="solicitud-de-PR" style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold;">solicitud de PR</p>
+(PR) 7580 7587 tarea ya revizada
+1) repos , 2) pull requests  ,3) boton azul new pull request,
+4) aqui busco la rama de la que voy a subir cambios  me aparece la rama into > UAT es a donde se hara la solicitud del pr
+5) si no aparecen los nombres de los commit le doy en agregar titulo detitle 7563 al principio sin el numeral pego cualquiera de los commit (add commit messages) agregar el commit (creo que si ya sale agregado en el ticket este boton ya no me aparece), 
+6) reviso que solo esten los cambios que yo agrege para no enviar algo que no sea lo que yo cambie,
+siempre que diga merge PR todo esta bien en los commit revizo que solo hayan cambios mis y listo
+7) si todo bien enviar (crear) ,8) me tiene que salir en verde exitoso (No merge conflicts)
+8)(PR min.css conflicto PR) siempre que modifique archivos minificados con una rama salida de master al hacer el PR saldran conflictos porq los PR son a UAT esto se soluciona con pasarme a UAT git pull crear una rama igual a la que trabaje y se creo el conflicto
+_UAT parado en esta nueva rama hago merge de la rama que creo el conflicto o la rama en la que trabaje con la rama que cree se genera el mismo conflicto que el del PR, resuelvo el conflicto minificando de nuevo el archivo verificar que todo quedo bien con el minificado  
+git add . > git commit no coloco mensaje para que quede un mejor control de lo que causo el conflicto aceptar, git push de la rama _UAT, si en el merge se crea otro tipo de conflicto diferente a minificados en el commit coloco resolving conflict 
+8.1) vuelvo y hago la solicitud de PR pero ahora con la nueva rama ya areglda salida de UAT
+9)le envio los link a fernando fin
+10)como eliminar un merge con conflictos en el tablero: en un boton arriba a la derecha abandonar 
+11)siempre que diga merge PR todo esta bien en los commit revizo que solo esten mis cambios y listo 
+12)si se crea un conflicto por un PR anterior al mio bajo cambios de UAT hago merge a mi rama nacida de UAT sino hay que sacarla de hay y listo el conflicto del PR se actualiza solo
+<p id="ramas-en-el-proyecto" style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold; padding-top:80px;">creacion de ramas en el proyecto</p>
+1)(cambios a development) siempre toda rama sale de master porq todo terminara en master si el bug no esta hay bajo cambios de UAT caso contrario se trabajara en la rama donde se este creando el nuevo modulo, despues de trabajar en mi rama me paso a development git pull y hago merge, otra vez git pull antes de subir cambios y git push
+-fix() solucion de un problema 
+-feat() algo nuevo
+git commit -m "fix(mvc) : changes when opening the add or edit form will not edit the saved password in the browser #8413"
+
+<p style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold;">tarea finalizada</p>
+1.1)voy a Azure ready, coloco el tiempo, un comentario en ingles colocar el servicio donde trabaje -mvc asignar un qa y listo guardar
+<p style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold;">para cambiar mis credenciales de git en mi pc</p>
+- panel de control en el buscador de window
+- categoria -iconos grandes 
+- administrador de credeciales - primera fila segunda columna
+- credenciales de windows busco hay abajo git coloco las credenciales que necesito poner
+<p style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold;">docker configuracion</p>
+1) desinstalo docker aqui se limpiara sql por si sola y tambien se cerrara sql
+2) instalo la ultima version de docker 
+3) abro git bash desde la carpeta metaRepo y escribo estos dos comandos para actualizar docker
+   docker volume create --name=sqlserverdata
+   docker volume create --name=rabbitmqdata
+4) docker-compose build mvc
+   docker-compose up mvc para agregarla a docker ya con esto me abre sql con las credenciales que tengo
+5) hay si lleno sql y levanto todos los servicios (sql servers como ingresar data y actualizar)
+6) derrepente deba bajarme cambios de los servicios para que funcionen con la nueva data agregada
+7) reinicio la computadora
+
+sql se vacia al eliminar docker toca volver a llenarlo
+-gateway, GatewayOcelot ------development
+-PayerPro.Mvc ---------------- aqui es donde hago mis cambios de UI
+-lleno la data en sql y hay si levanto los contedores en docker 
+-recordar que para levantar los contenedores docker tiene que estar encendido
+
+docker-compose down
+<p style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold;">sql credenciales</p>
+CapAdminDB SEP 2022 nombre de la carpeta de lo que tengo que pasarle por sql
+descargo SQL Server Management Studio (SSMS)
+lo abro y click derecho sobre la carpeta databases => import Data -tier => next => browser => abro o copio el archivo => next
+<p id="sql-actualizar" style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold;">sql servers como ingresar data y actualizar</p>
+- Databases : aqui dentro estan todos los servicios que tienen la data que nos pasaron una actualizacion de enero o otra fecha 2023 entonces actualizamos todo revizo si en la actualizacion no viene alguno de los servios para no borrar ese
+1) clic + despues click derecho en el servicio si esta vacio no abran servicios > delete > checkbox true > Close existing connections > ok
+2) Databases click derecho > import-data-tier Aplication > Next > Browse.. , busco la carpeta de los servicios , click sobre la carpeta me mostrara el servicio.bacpac lo agrego > next > next > finsh > close
+3) los .sql simplemente los arrastro y le doy ejecutar me tiene que salir success
+- build de aliviauth y listo
+- deveria bajar cambios de todos los servicios y actualizar para que funcione con la nueva data que se esta pasando metarepo  master, todos los demas servicios en development al menos que los tenga que tener en una rama especifica
+- se me bloqueo el usuario : sql> Databases> AliviAuth-UserStore > dbo.Users click derecho - edit top 200 - en la tabla a mano derecha LockoutEnd NULL - LockouutEnabled false click en la linea de abajo se actualiza y borralo  
+<p style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold;">necesario tener instalado</p>
+-Git, Git Submodules
+-Docker
+-Editor de texto (VsCode, Sublime Text)
+-SQL Server Management Studio (SSMS)
+-Visual Studio 2019 (No es requerido)
+
+Conocimientos en:
+-Html5, Css3, Jquery, Javascript
+-Vistas Razor .Net
+
+
+<p style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold;">puertos del login</p>
+http://localhost:44383/
+http://localhost:44383/Account/Login
+http://localhost:44383/Account/ForgotPassword
+http://localhost:44383/Account/ForgotPasswordConfirmation
+http://localhost:44383/Account/Signup
+http://localhost:44383/Account/AccessDenied
+http://localhost:44383/Account/ResetPassword
+http://localhost:44383/Account/ResetPasswordConfirmation
+<p id="servicios" style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold;">servicios que debo iniciar para cada modulo</p>
+Modulo Payer : Iniciar payers
+Modulo Member: Iniciar members
+Modulo Plan, Plan Group : Iniciar payers
+Modulo Vendor : Iniciar payers, 
+Modulo Provider : Iniciar payers, providers
+Modulo Claim : Iniciar claims, payers, providers, members
+Modulo Services Categories : Iniciar payers
+Modulo Fee Shedule : Iniciar payers
+Modulo System Code : Iniciar lookuptables
+Modulo Trading Partner: Iniciar edi-api, trading-partner, claims
+Modulo Propietary File: Iniciar proprietaryfile, payers
+Modulo Eligibility Import Profile : Iniciar eligibility, proprietaryfile,edi-api, providers, members
+Modulo Payment Processing Profile: Iniciar claims, payers, providers
+Modulo Payment Processing Run: Iniciar claims, payers, providers
+Modulo CapReconciliation : capreconciliationapi trading-partner proprietaryfile
+modulo propietaryfile : (los basicos) + proprietaryfile
+build
+docker-compose up payers 
+docker-compose up members
+docker-compose up claims
+docker-compose up providers
+docker-compose up attachment
+docker-compose up trading-partner
+docker-compose up edi-api
+docker-compose up capreconciliationapi
+docker-compose up proprietaryfile
+docker-compose up eligibility
+docker-compose up comments
+docker-compose up trading-partner edi-api claims
+docker-compose up capreconciliationapi trading-partner proprietaryfile
+docker-compose up capreconciliationapi edi-api proprietaryfile
+docker-compose up edi-api trading-partner eligibility proprietaryfile
+RUN curl -L https://raw.githubusercontent.com/Microsoft/artifacts-credprovider/v1.0.2/helpers/installcredprovider.sh  | sh
+<p style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold;">otro proyecto portal</p>
+atributo de autorizacion al controlador
+glpayer controler
+00200016608
+<p id="sectionLogeo" style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold;">section token de logeo</p>
+<p style="margin-bottom:0px;color:rgba(255, 0, 221, 0.75);font-size:16px;font-weight: bold;">no tengo por el momento</p>
+
+<p id="tabDynamic" style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold;">tabDynamic</p>
+$(document).on("click", ".customtab li a.nav-link.active i.bg-tab-icon", function (event) {} ); tengo este evento que es el que me cierra cada tab
+$(document).on('click', '.customtab li a.nav-link', function (event) {} ); esta es el evento de pasarnos a otro tab
+
+<p id="Modulos" style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold;">analisis de modulos</p>
+<p id="Modulos" style="margin-bottom:0px;color:rgba(255, 0, 221, 0.75);font-size:16px;font-weight: bold;">payerProGenericFilter({})</p>
+-1)payerProGenericFilter{diferentes opcines en cada modulo}  esto arranca en cada modulo aqui le pasamos opciones del filtro y tablas
+-1.1)esta funcion es llamada en el entitylookup linea 64 
+-1.2)aqui le agregan mas opciones de las que ya trae de la estructua principal <p id="Modulos" style="margin-bottom:0px;color:rgba(255, 0, 221, 0.75);font-size:16px;font-weight: bold;display: inline-block;">targetFilterSelect: 'select.filterSelect, data-set-typeSelect="multiple"</p>
+-providersIndex.js le pase esta variable selectedDefault:["name", "npi"], estas seran las opciones que tendra seleccionadas el select por defecto
+-en cada index.cshtml de cada modulo le pasare las opciones de lo que quiero que muestre el html del entitylookup
+@{
+  ViewData["Title"] = "Members";  hace referencia como al titulo del modulo
+  ViewData["DateFilter"] = true;  si es true aparecera el filtro de fecha 
+  Layout = null;  -- esto es para que no se duplique el html el layout 
+  ViewData["Service"] = Constants.DAL_Member;
+  ViewData["IsActive"] = true;
+  ViewData["IsActiveTitle"] = "Show only inactive";
+  ViewData["IsActiveChecked"] = false; -- el check si aparece activo o no false desactivado
+}
+<p id="Modulos" style="margin-bottom:0px;color:rgba(255, 0, 221, 0.75);font-size:16px;font-weight: bold;">payerProSelect({})</p>
+-1) esta es la funcion que se llama para llenar el select en este caso creo que se usa mas para select multiple
+-boostrap-select es la libreria que se utiliza para que esta verga sea un selct multiple
+<p id="selectHkas" style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold; padding-top:80px;">select de hkas</p>
+-select2({ theme: "bootstrap4", width: "85%" }) ,select2() con opciones o sin opciones esto es una libreria que le cambia los estilos no entra en ninguna funcion adicional
+-payerProSelect({}) selectpicker() esta e la libreria que me usa, esto si es para que entre en esta funcion y se genere un select con las especificaciones que se necesiten el mas usado el multiple
+  valueTypeSelect:{typeselect:"simple"}, pasandole esta variable me convertira el select en simple
+  selectedDefault:["name", "npi"], pasandole este array desde el index seran las opciones que apareceran seleccionadas por defautl en el select multiple
+  custom-select  es una clase que no tiene nada que ver con boostrap se creo para darle estilos al proyecto al tener el select esa clase me toma la libreria select2
+-payerProLUTSelect({}) tambien se le pasan opciones este no lo he usado mucho es el que le sale el cargador refres al lado
+-typeahead() otro plugin , initializerTypeahead() esta es la funcion que se llama para crear el typeahead() site-form.js en este archivo esta esa logica
+<p id="entitylookupOpenCloseForm" style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold; padding-top:80px;">entitylookupOpenCloseForm</p>
+- ".frmAdvancedSearch" clase del formulario que engloba los dos filtros 
+1) ".singleAdvancedFilters" clase del contenedor global del filtro no avanzado 
+1.1) ".contentFilter"  clase que tienen todos los campos de fecha
+1.2) ".text-moreFilters" "#addvancedMore" clase del texto que sale al final y id del boton de abrir el filtro avanzado 
+1.3) ".selectFilterMultiple" clase del primer campo select que aparece de primero en todo los modulos 
+1.4) ".normalFilterButton" clase del boton de hacer la busqueda 
+1.5) ".titleFilter" clase del titulo Filters
+
+1.6) ".NewOptionalTypeaheadContainer" clase del contenedor de unos tipeheader que esta hide y dejan de estarlo segun en modulo
+1.7) ".NewOptionalTypeahead" clase de los dos posibles typeheader que pueden salir dentro del formulario 
+1.8) ".NewOptionalCheckboxContainer" clase del contenedor de los checkbox 
+
+1.9) ".contentFilterFirts" clase adicional que le coloque al campo de fecha que es solito sin from to
+
+2) ".moreAdvancedFilters" clase del contenedor del filtro avanzado
+<p id="typeheader" style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold; padding-top:80px;">typeheader</p>
+1) upstreamBillingExclusionForm.js  en este archivo analice para ver como funcionaban los typeheader con esa misma palabra busco el html donde estan los typeheader estan en una vista parcial para el crear y editar
+2) estas son las funciones de boorar item borrar todo de un typeheader     
+//removeItem remuevo un solo item especifico del tipe header
+$(document).on('click', targetUpstreamBillingExclusion.iconRemoveItem, function (e) {
+    $(this).cardItemsForm('removeItem', $(this).closest('.cards-item'));
+});
+
+//removeAll los remuevo todos 
+$(document).on('click', targetUpstreamBillingExclusion.iconRemoveAll, function (e) {
+    $(this).cardItemsForm('removeAll', $(this).closest(".header-item").closest(".card"));
+});
+
+// esta funcion la creo precizamente para borrar todos los cosos que hayan abiertos
+$(targetUpstreamBillingExclusion.btnClear).on("click", function () {
+    $(targetUpstreamBillingExclusion.iconRemoveAll + ":visible").click();
+});
+$(targetProcedurePendCriteria.serviceRegionTA).typeahead("destroy") al crear un typeheader de forma dinamica siempre deveremos destruir la primera inicializacion  para asi poder crear la nueva
+<p id="datepicker" style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold; padding-top:80px;">bootstrap-datepicker</p>
+inicializacion
+ $('.datepicker', tabContext).datepicker({
+    format: 'mm/dd/yyyy', // Cambiado a formato común día/mes/año
+    autoclose: true,
+    assumeNearbyYear: true,
+    todayHighlight: true,
+    zIndexOffset: 1000,
+    orientation: 'bottom',
+    widgetPositioning: {
+        horizontal: "auto",
+        vertical: "bottom"
+    }
+    // otros parametros que puedas necesitar
+    // --- Parámetros nuevos y útiles ---
+    language: 'es',              // Cambia los nombres de meses y días a español-bootstrap-datepicker.es.min.js.
+    startDate: '0d',             // No permite seleccionar fechas pasadas (desde "hoy")
+    endDate: '+1y',              // Limita la selección a un año a partir de hoy
+    daysOfWeekDisabled: [0, 6],  // Desactiva fines de semana (0=Dom, 6=Sáb)
+    clearBtn: true,              // Muestra un botón para borrar la selección rápidamente
+    todayBtn: "linked",          // Agrega un botón que lleva directamente al día de hoy
+    immediateUpdates: true,      // Actualiza el calendario mientras el usuario escribes
+})
+// Evento cuando se cambia la fecha
+.on("changeDate", function(e) {
+    console.log("Fecha seleccionada: " + e.format());
+})
+// Tu evento original para evitar propagación al ocultar
+.on("hide", function(e) {
+    e.stopPropagation();
+});
+<p id="aws_vpn" style="margin-bottom:0px;color:rgba(51, 0, 255, 0.75);font-size:16px;font-weight: bold;padding-top: 80px;">AWS VPN</p>
+<!-- fin de toda la seccion de hkas -->
+    </pre>
+</p>

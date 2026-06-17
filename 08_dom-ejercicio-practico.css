@@ -142,8 +142,8 @@ pre {
 .scroll-top-btn {
   position: fixed;
   z-index: 999;
-  bottom: 0.6rem;
-  right: calc(3.2rem + 1.5vw);
+  bottom: 0.8rem;
+  right: calc(3.8rem + 1vw);
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
