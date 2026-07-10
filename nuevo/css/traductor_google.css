@@ -1,0 +1,53 @@
+.caja_google{
+  display: flex;
+  justify-content: center;
+  padding-top: 70px;
+}
+.google{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 6rem;
+  font-weight: 700;
+}
+.g{
+  color: #4285f4;
+}
+.o1{
+  color: #ea4335;
+}
+.o2{
+  color:#fbbc05;
+}
+.l{
+  color: #34a853;
+}
+
+.input-icono {
+  display: flex;
+  margin: auto;
+  width: 45%;
+  padding: 1%;
+  box-shadow: 0px 0px 4px gray;
+  border-radius: 20px;
+  margin-top: 3%;
+  
+}
+.fa-search{
+    margin-left:3% ;
+    margin-right: 3%;
+
+}
+.input {
+    width: 80%;
+    font-size: 1rem;
+    border: none;
+
+
+}
+.fa-microphone{
+    margin-left:5% ;
+    margin-right:3%;
+    color: #4285f4;
+}
+.input:focus {
+  outline: none;
+}
